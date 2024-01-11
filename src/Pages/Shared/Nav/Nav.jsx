@@ -16,7 +16,7 @@ const Nav = () => {
       <Link to={"/"}>
         <a className="font-bold mx-2 text-white">Dashboard</a>
       </Link>
-      <Link to={"/"}>
+      <Link to={"/menu"}>
         <a className="font-bold mx-2 text-white">Our Menu</a>
       </Link>
     </>

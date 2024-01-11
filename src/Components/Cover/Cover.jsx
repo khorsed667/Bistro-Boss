@@ -1,0 +1,21 @@
+import React from "react";
+
+const Cover = ({ img, tittle, description }) => {
+  return (
+    <div
+      className="hero h-[500px] w-full bg-fixed"
+      style={{
+        backgroundImage: `url(${img})`,
+      }}
+    >
+      <div className="hero-content text-center text-neutral-content">
+        <div className="bg-black opacity-50 px-20 py-10">
+          <h1 className="mb-5 text-5xl font-semibold">{tittle}</h1>
+          <p className="mb-5">{description}</p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Cover;
