@@ -12,6 +12,9 @@ export default {
       backgroundImage: {
         'chef-service': "url('./src/assets/home/chef-service.jpg')",
         'feature-img' : "url('./src/assets/home/featured.jpg')"
+      },
+      fontFamily: {
+        "cinzel" : ["Cinzel", "serif"]
       }
     },
     screens: {

@@ -10,6 +10,8 @@ import useMenu from "../../hooks/useMenu";
 import Headings from "../../Components/Headings/Headings";
 import MenuRow from "../../Components/MenuRow/MenuRow";
 import CommonButton from "../../Components/CommonButton/CommonButton";
+import { Link } from "react-router-dom";
+import MenuCategory from "./MenuCategory";
 
 const Menu = () => {
   const [menu] = useMenu();
@@ -23,6 +25,8 @@ const Menu = () => {
   const saladItems = menu.filter((mnu) => mnu.category === "salad");
   const saladsItems = saladItems.slice(0, 6);
 
+  console.log(saladsItems);
+
   return (
     <div className="w-full">
       <Helmet>
@@ -33,78 +37,45 @@ const Menu = () => {
         tittle={"Our Menu"}
         description={"Would you like to try a disk?"}
       ></Cover>
+      <Headings subHeading={"Don't miss"} headings={"todays offer"}></Headings>
       <div className="max-w-screen-xl mx-auto">
-        <Headings
-          subHeading={"Don't miss"}
-          headings={"todays offer"}
-        ></Headings>
         <div className="md:grid md:grid-cols-2 my-12">
           {popularItems?.map((pop, index) => (
             <MenuRow key={index} segment={pop}></MenuRow>
           ))}
         </div>
-        <CommonButton ButtonName={"Order Your Favourite Food"}></CommonButton>
+        <Link to={"/shop/salad"}>
+          <CommonButton ButtonName={"Order Your Favourite Food"}></CommonButton>
+        </Link>
       </div>
 
       <div>
-        <Cover
+        <MenuCategory
           img={DessertImg}
-          tittle={"DESSERTS"}
-          description={
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut iure eligendi corporis consequatur illum quae? Modi alias expedita illum ad!"
-          }
-        ></Cover>
-        <div className="md:grid md:grid-cols-2 my-12 max-w-screen-xl mx-auto">
-          {dessertsItems?.map((pop, index) => (
-            <MenuRow key={index} segment={pop}></MenuRow>
-          ))}
-        </div>
-        <CommonButton ButtonName={"Order Your Favourite Food"}></CommonButton>
+          item={dessertsItems}
+          tittle={"dessert"}
+        ></MenuCategory>
       </div>
       <div>
-        <Cover
+        <MenuCategory
           img={PizzaImg}
-          tittle={"Pizza"}
-          description={
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut iure eligendi corporis consequatur illum quae? Modi alias expedita illum ad!"
-          }
-        ></Cover>
-        <div className="md:grid md:grid-cols-2 my-12 max-w-screen-xl mx-auto">
-          {pizzasItems?.map((pop, index) => (
-            <MenuRow key={index} segment={pop}></MenuRow>
-          ))}
-        </div>
-        <CommonButton ButtonName={"Order Your Favourite Food"}></CommonButton>
+          item={pizzasItems}
+          tittle={"pizza"}
+        ></MenuCategory>
       </div>
       <div>
-        <Cover
+        <MenuCategory
           img={SaladsImg}
-          tittle={"SALADS"}
-          description={
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut iure eligendi corporis consequatur illum quae? Modi alias expedita illum ad!"
-          }
-        ></Cover>
-        <div className="md:grid md:grid-cols-2 my-12 max-w-screen-xl mx-auto">
-          {saladsItems?.map((pop, index) => (
-            <MenuRow key={index} segment={pop}></MenuRow>
-          ))}
-        </div>
-        <CommonButton ButtonName={"Order Your Favourite Food"}></CommonButton>
+          item={saladsItems}
+          tittle={"salad"}
+        ></MenuCategory>
       </div>
       <div>
-        <Cover
+        <MenuCategory
           img={SoupsImg}
-          tittle={"SOUPS"}
-          description={
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut iure eligendi corporis consequatur illum quae? Modi alias expedita illum ad!"
-          }
-        ></Cover>
-        <div className="md:grid md:grid-cols-2 my-12 max-w-screen-xl mx-auto">
-          {soupsItems?.map((pop, index) => (
-            <MenuRow key={index} segment={pop}></MenuRow>
-          ))}
-        </div>
-        <CommonButton ButtonName={"Order Your Favourite Food"}></CommonButton>
+          item={soupsItems}
+          tittle={"soup"}
+        ></MenuCategory>
       </div>
     </div>
   );

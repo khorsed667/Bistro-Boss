@@ -12,7 +12,7 @@ const MenuRow = ({segment}) => {
                 />
               </div>
               <div className="xsm:w-[280px] sm:w-[350px] xsm:mx-2 md:mx-5 lg:mx-10">
-                <p className="font-bold text-main">{segment.name}----------</p>
+                <p className="font-bold font-cinzel text-main">{segment.name}----------</p>
                 <span className="w-1/3 xsm:text-xs md:text-base">
                   {segment.recipe}
                 </span>

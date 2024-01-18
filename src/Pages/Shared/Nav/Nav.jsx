@@ -1,23 +1,26 @@
 import React from "react";
 import logo from "./../../../assets/home/logo.png";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 
 const Nav = () => {
+
+  const {category} = useParams();
+
   const navItems = (
     <>
       <Link to={"/"}>
         <a className="font-bold mx-2 text-white">Home</a>
       </Link>
       <Link to={"/"}>
-        <a className="font-bold mx-2 text-white">Contact Us</a>
-      </Link>
-      <Link to={"/"}>
         <a className="font-bold mx-2 text-white">Dashboard</a>
       </Link>
       <Link to={"/menu"}>
         <a className="font-bold mx-2 text-white">Our Menu</a>
+      </Link>
+      <Link to={`/shop/${category || 'salad'}`}>
+        <a className="font-bold mx-2 text-white">Our Shop</a>
       </Link>
     </>
   );

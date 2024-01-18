@@ -32,7 +32,7 @@ const SwiperItems = () => {
           <div className="relative mx-auto">
             <img className="" src={swImg1} alt="" />
             <div className="absolute bottom-10 w-full">
-              <p className="text-2xl text-white text-center shadow-sm">SALAD</p>
+              <p className="text-2xl text-white font-cinzel text-center shadow-sm">SALADS</p>
             </div>
           </div>
         </SwiperSlide>
@@ -40,7 +40,7 @@ const SwiperItems = () => {
           <div className="relative">
             <img src={swImg2} alt="" />
             <div className="absolute bottom-10 w-full">
-              <p className="text-2xl text-white text-center shadow-sm">SOUP</p>
+              <p className="text-2xl text-white font-cinzel text-center shadow-sm">SOUPS</p>
             </div>
           </div>
         </SwiperSlide>
@@ -48,7 +48,7 @@ const SwiperItems = () => {
           <div className="relative">
             <img src={swImg3} alt="" />
             <div className="absolute bottom-10 w-full">
-              <p className="text-2xl text-white text-center shadow-sm">PIZZA</p>
+              <p className="text-2xl text-white font-cinzel text-center shadow-sm">PIZZAS</p>
             </div>
           </div>
         </SwiperSlide>
@@ -56,7 +56,7 @@ const SwiperItems = () => {
           <div className="relative">
             <img src={swImg4} alt="" />
             <div className="absolute bottom-10 w-full">
-              <p className="text-2xl text-white text-center shadow-sm">
+              <p className="text-2xl text-white font-cinzel text-center shadow-sm">
                 DESSERTS
               </p>
             </div>

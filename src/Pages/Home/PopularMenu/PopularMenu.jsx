@@ -2,10 +2,11 @@ import React from "react";
 // import data from "../../../../public/menu.json";
 import Headings from "../../../Components/Headings/Headings";
 import useMenu from "../../../hooks/useMenu";
+import { Link } from "react-router-dom";
 
 const PopularMenu = () => {
   const [menu] = useMenu();
-  
+
   const selectedMenu = menu.slice(0, 6);
   console.log(selectedMenu);
 
@@ -27,7 +28,9 @@ const PopularMenu = () => {
                 />
               </div>
               <div className="xsm:w-[280px] sm:w-[350px] xsm:mx-2 md:mx-5 lg:mx-10">
-                <p className="font-bold text-main">{mnu.name}----------</p>
+                <p className="font-bold font-cinzel text-main">
+                  {mnu.name}----------
+                </p>
                 <span className="w-1/3 xsm:text-xs md:text-base">
                   {mnu.recipe}
                 </span>
@@ -40,9 +43,11 @@ const PopularMenu = () => {
         ))}
       </div>
       <div className="w-full flex justify-center items-center">
-        <button className="mx-auto btn border-b-4 text-main border-b-main">
-          View Full Manu
-        </button>
+        <Link to={'/menu'}>
+          <button className="mx-auto btn border-b-4 text-main border-b-main">
+            View Full Manu
+          </button>
+        </Link>
       </div>
     </div>
   );

@@ -7,7 +7,10 @@ const Recommand = () => {
 
   return (
     <div className=" max-w-screen-xl mx-auto ">
-      <Headings subHeading={"Should try"} headings={"Chafe Recommanded"}></Headings>
+      <Headings
+        subHeading={"Should try"}
+        headings={"Chafe Recommanded"}
+      ></Headings>
       <div className="grid lg:grid-cols-3 md:grid-cols-2 xsm:grid-cols-1 gap-10">
         {recommandedItems.map((reco, index) => (
           <div key={index}>
