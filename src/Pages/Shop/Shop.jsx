@@ -9,12 +9,16 @@ import ShopTab from "./ShopTab";
 import { useParams } from "react-router-dom";
 
 const Shop = () => {
+
+  // For setting the right tab based on clicking the right menu
+
+  const [menu] = useMenu();
   const {category} = useParams();
   const itemsCategory = ["salad", "pizza", "soup", "dessert", "drink"];
   const findItemsCategory = itemsCategory.indexOf(category);
   const [tabIndex, setTabIndex] = useState(findItemsCategory);
-  const [menu] = useMenu();
 
+  // Filtering different menus from Menu
 
   const drinksItems = menu.filter((mnu) => mnu.category === "drinks");
   const dessertItems = menu.filter((mnu) => mnu.category === "dessert");
