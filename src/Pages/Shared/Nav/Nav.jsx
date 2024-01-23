@@ -22,6 +22,12 @@ const Nav = () => {
       <Link to={`/shop/${category || 'salad'}`}>
         <a className="font-bold mx-2 text-white">Our Shop</a>
       </Link>
+      <Link to={'/login'}>
+        <a className="font-bold mx-2 text-white">Login</a>
+      </Link>
+      <Link to={'/signup'}>
+        <a className="font-bold mx-2 text-white">SignUp</a>
+      </Link>
     </>
   );
 

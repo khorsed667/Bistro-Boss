@@ -19,7 +19,7 @@ const MenuCategory = ({img, tittle, item}) => {
           <MenuRow key={index} segment={pop}></MenuRow>
         ))}
       </div>
-      <Link to={`/shop/${tittle}`}><CommonButton ButtonName={"Order Your Favourite Food"}></CommonButton></Link>
+      <Link to={`/shop/${tittle}`}><CommonButton ButtonName={`Order ${tittle}`}></CommonButton></Link>
     </div>
   );
 };

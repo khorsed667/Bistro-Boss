@@ -7,7 +7,8 @@ export default {
   theme: {
     extend: {
       colors: {
-        "main" : "#D99904"
+        "main" : "#D99904",
+        "secoundary" : "rgba(209, 160, 84, 0.70)"
       },
       backgroundImage: {
         'chef-service': "url('./src/assets/home/chef-service.jpg')",
