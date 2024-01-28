@@ -1,33 +1,54 @@
-import React from "react";
+import React, { useContext } from "react";
 import logo from "./../../../assets/home/logo.png";
 import { Link, useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { faCartShopping, faUser } from "@fortawesome/free-solid-svg-icons";
+import { AuthContext } from "../../../providers/AuthProviders";
+import useCart from "../../../hooks/useCart";
 
 const Nav = () => {
+  const { category } = useParams();
+  const { user, logOut } = useContext(AuthContext);
+  const [cart] = useCart();
 
-  const {category} = useParams();
+  const handelLogOut = () => {
+    logOut()
+      .then((result) => {
+        console.log(result);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   const navItems = (
     <>
       <Link to={"/"}>
-        <a className="font-bold mx-2 text-white">Home</a>
+        <p className="font-bold mx-2 text-white">Home</p>
       </Link>
       <Link to={"/"}>
-        <a className="font-bold mx-2 text-white">Dashboard</a>
+        <p className="font-bold mx-2 text-white">Dashboard</p>
       </Link>
       <Link to={"/menu"}>
-        <a className="font-bold mx-2 text-white">Our Menu</a>
+        <p className="font-bold mx-2 text-white">Our Menu</p>
       </Link>
-      <Link to={`/shop/${category || 'salad'}`}>
-        <a className="font-bold mx-2 text-white">Our Shop</a>
+      <Link to={`/shop/${category || "salad"}`}>
+        <p className="font-bold mx-2 text-white">Our Shop</p>
       </Link>
-      <Link to={'/login'}>
-        <a className="font-bold mx-2 text-white">Login</a>
-      </Link>
-      <Link to={'/signup'}>
+      {/* <Link to={"/signup"}>
         <a className="font-bold mx-2 text-white">SignUp</a>
-      </Link>
+      </Link> */}
+      {user ? (
+        <>
+          <button onClick={handelLogOut}>LogOut</button>
+        </>
+      ) : (
+        <>
+          <Link to={"/login"}>
+            <p className="font-bold mx-2 text-white">Login</p>
+          </Link>
+        </>
+      )}
     </>
   );
 
@@ -58,13 +79,23 @@ const Nav = () => {
             {navItems}
           </ul>
         </div>
-        <div><img className="w-[50px]" src={logo} alt="" /></div>
+        <div>
+          <img className="w-[50px]" src={logo} alt="" />
+        </div>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navItems}</ul>
       </div>
       <div className="navbar-end cursor-pointer">
-        <FontAwesomeIcon className="text-2xl me-5" icon={faUser} />
+        <div className="relative mx-2">
+          <div className="badge absolute mt-[-15px] bg-main outline-none text-white left-5">
+            {cart?.length || 0}
+          </div>
+          <FontAwesomeIcon className="text-2xl me-5" icon={faCartShopping} />
+        </div>
+        <div>
+          <FontAwesomeIcon className="text-2xl me-5" icon={faUser} />
+        </div>
       </div>
     </div>
   );

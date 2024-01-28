@@ -2,11 +2,16 @@ import React, { useContext } from "react";
 import authenticationSidePhoto from "./../../assets/others/authentication2.png";
 import background from "./../../assets/others/authentication.png";
 import { AuthContext } from "../../providers/AuthProviders";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import Swal from "sweetalert2";
 
 const Login = () => {
-  const { signIn, user } = useContext(AuthContext);
+  const { signIn } = useContext(AuthContext);
+
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location.state?.from?.pathname || "/";
 
   const handelLogin = (event) => {
     event.preventDefault();
@@ -17,6 +22,8 @@ const Login = () => {
     signIn(email, password)
       .then((result) => {
         console.log(result);
+        Swal.fire("Welcome to Bistro Boss");
+        navigate(from, { replace: true });
       })
       .catch((error) => console.log(error));
   };
