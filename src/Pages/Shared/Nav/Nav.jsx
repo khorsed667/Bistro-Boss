@@ -91,7 +91,7 @@ const Nav = () => {
           <div className="badge absolute mt-[-15px] bg-main outline-none text-white left-5">
             {cart?.length || 0}
           </div>
-          <FontAwesomeIcon className="text-2xl me-5" icon={faCartShopping} />
+          <Link to={'/dashboard/mycart'}><FontAwesomeIcon className="text-2xl me-5" icon={faCartShopping} /></Link>
         </div>
         <div>
           <FontAwesomeIcon className="text-2xl me-5" icon={faUser} />

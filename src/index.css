@@ -2,3 +2,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+#sidebar a.active {
+    color: white;
+  }
+
+#sidebar a {
+    background-color: transparent;
+  }
