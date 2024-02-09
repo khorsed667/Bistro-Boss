@@ -30,7 +30,7 @@ const Dashboard = () => {
   // const isAdmin = user.email == adminUser.email;
   // console.log(isAdmin);
 
-  const isAdmin = true;
+  const isAdmin = false;
 
   return (
     <div className="drawer lg:drawer-open">
@@ -108,7 +108,7 @@ const Dashboard = () => {
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to={"history"}>
+                  <NavLink to={"payment_history"}>
                     <FontAwesomeIcon icon={faWallet} /> Payment History
                   </NavLink>
                 </li>
@@ -123,7 +123,7 @@ const Dashboard = () => {
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to={"booking"}>
+                  <NavLink to={"bookings"}>
                     <FontAwesomeIcon icon={faBookmark} /> My Booking
                   </NavLink>
                 </li>

@@ -15,6 +15,11 @@ import ManageItems from "../Pages/DashBoard/ManageItems/ManageItems";
 import AddItem from "../Pages/DashBoard/AddItem/AddItem";
 import UpdateItem from "../Pages/DashBoard/ManageItems/UpdateItem";
 import AdminHome from "../Pages/DashBoard/AdminHome/AdminHome";
+import Reservation from "../Pages/DashBoard/Reservation/Reservation";
+import UserHome from "../Pages/DashBoard/UserHome/UserHome";
+import Payment from "../Pages/DashBoard/Payment/Payment";
+import UserReview from "../Pages/DashBoard/Review/UserReview";
+import UserBookings from "../Pages/DashBoard/UserBookings/UserBookings";
 
   export const router = createBrowserRouter([
     {
@@ -49,8 +54,28 @@ import AdminHome from "../Pages/DashBoard/AdminHome/AdminHome";
       children: [
         // User Routes....
         {
+          path: 'home',
+          element:<PrivateRoute><UserHome></UserHome></PrivateRoute>
+        },
+        {
+          path:'reservation',
+          element:<PrivateRoute><Reservation></Reservation></PrivateRoute>
+        },
+        {
+          path:'payment_history',
+          element:<PrivateRoute><Payment></Payment></PrivateRoute>
+        },
+        {
           path: 'mycart',
           element: <PrivateRoute><MyCart></MyCart></PrivateRoute>
+        },
+        {
+          path:'bookings',
+          element:<PrivateRoute><UserBookings></UserBookings></PrivateRoute>
+        },
+        {
+          path:'review',
+          element:<PrivateRoute><UserReview></UserReview></PrivateRoute>
         },
         // Admin Routes....
         {
