@@ -8,7 +8,6 @@ const PopularMenu = () => {
   const [menu] = useMenu();
 
   const selectedMenu = menu.slice(0, 6);
-  console.log(selectedMenu);
 
   return (
     <div className=" max-w-screen-xl mx-auto">

@@ -26,7 +26,7 @@ const Nav = () => {
       <Link to={"/"}>
         <p className="font-bold mx-2 text-white">Home</p>
       </Link>
-      <Link to={"/"}>
+      <Link to={"/dashboard/admin_home"}>
         <p className="font-bold mx-2 text-white">Dashboard</p>
       </Link>
       <Link to={"/menu"}>
@@ -89,7 +89,7 @@ const Nav = () => {
       <div className="navbar-end cursor-pointer">
         <div className="relative mx-2">
           <div className="badge absolute mt-[-15px] bg-main outline-none text-white left-5">
-            {cart?.length || 0}
+            {cart?.length || ''}
           </div>
           <Link to={'/dashboard/mycart'}><FontAwesomeIcon className="text-2xl me-5" icon={faCartShopping} /></Link>
         </div>

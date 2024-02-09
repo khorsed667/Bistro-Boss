@@ -1,23 +1,41 @@
 import {
   faBagShopping,
   faBars,
+  faBookBookmark,
   faBookmark,
   faCalendarDays,
   faCartShopping,
   faComment,
   faHouse,
+  faListCheck,
   faMessage,
+  faSpoon,
+  faUsers,
   faWallet,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
 import { NavLink, Outlet } from "react-router-dom";
+import useUser from "../hooks/useUser";
+import { useContext } from "react";
+import { AuthContext } from "../providers/AuthProviders";
 
 const Dashboard = () => {
+
+  // const {user} = useContext(AuthContext);
+  // console.log(user.email);
+
+  // const [usr] = useUser();
+  // const adminUser = usr.find(user => user.role === 'admin');
+  // console.log(adminUser);
+  // const isAdmin = user.email == adminUser.email;
+  // console.log(isAdmin);
+
+  const isAdmin = true;
+
   return (
     <div className="drawer lg:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-      <div className="drawer-content flex flex-col items-center justify-center">
+      <div className="drawer-content flex flex-col bg-slate-100 items-center justify-center">
         {/* Page content here */}
         <Outlet></Outlet>
         <label
@@ -37,41 +55,81 @@ const Dashboard = () => {
           <p className="text-2xl font-bold text-center  tracking-widest font-cinzel">
             Bistro Boss <br />
           </p>
-          <p className="text-center text-lg font-bold font-cinzel tracking-widest">Restaurant</p>
+          <p className="text-center text-lg font-bold font-cinzel tracking-widest">
+            Restaurant
+          </p>
         </div>
         <ul className="menu p-4 w-80 min-h-full text-base-content">
           {/* Sidebar content here */}
           <nav id="sidebar">
-            <li>
-              <NavLink to={"home"}>
-                <FontAwesomeIcon icon={faHouse} /> User Home
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to={"reservation"}>
-                <FontAwesomeIcon icon={faCalendarDays} /> Reservation
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to={"history"}>
-                <FontAwesomeIcon icon={faWallet} /> Payment History
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to={"mycart"}>
-                <FontAwesomeIcon icon={faCartShopping} /> My Cart
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to={"review"}>
-                <FontAwesomeIcon icon={faComment} /> Add review
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to={"booking"}>
-                <FontAwesomeIcon icon={faBookmark} /> My Booking
-              </NavLink>
-            </li>
+            {isAdmin ? (
+              <>
+                <li>
+                  <NavLink to={"admin_home"}>
+                    <FontAwesomeIcon icon={faHouse} /> Admin Home
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to={"add_item"}>
+                    <FontAwesomeIcon icon={faSpoon} /> Add Item
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to={"mycart"}>
+                    <FontAwesomeIcon icon={faCartShopping} /> My Cart
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to={"manage_items"}>
+                    <FontAwesomeIcon icon={faListCheck} /> Manage Items
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to={"manage_bookings"}>
+                    <FontAwesomeIcon icon={faBookBookmark} /> Manage Bookings
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to={"all_users"}>
+                    <FontAwesomeIcon icon={faUsers} /> All Users
+                  </NavLink>
+                </li>
+              </>
+            ) : (
+              <>
+                <li>
+                  <NavLink to={"home"}>
+                    <FontAwesomeIcon icon={faHouse} /> User Home
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to={"reservation"}>
+                    <FontAwesomeIcon icon={faCalendarDays} /> Reservation
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to={"history"}>
+                    <FontAwesomeIcon icon={faWallet} /> Payment History
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to={"mycart"}>
+                    <FontAwesomeIcon icon={faCartShopping} /> My Cart
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to={"review"}>
+                    <FontAwesomeIcon icon={faComment} /> Add review
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to={"booking"}>
+                    <FontAwesomeIcon icon={faBookmark} /> My Booking
+                  </NavLink>
+                </li>
+              </>
+            )}
+
             <div className="divider"></div>
             <li>
               <NavLink to={"/"}>
@@ -84,7 +142,7 @@ const Dashboard = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink to={"/shop"}>
+              <NavLink to={"/shop/salad"}>
                 <FontAwesomeIcon icon={faBagShopping} /> Shop
               </NavLink>
             </li>

@@ -7,10 +7,14 @@ import Menu from "../Pages/Menu/Menu";
 import Shop from "../Pages/Shop/Shop";
 import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/SignUp/SignUp";
-import Secret from "./Secret";
 import PrivateRoute from "./PrivateRoute";
 import Dashboard from "../Layout/Dashboard";
 import MyCart from "../Pages/DashBoard/MyCart/MyCart";
+import AllUsers from "../Pages/DashBoard/AllUsers/AllUsers";
+import ManageItems from "../Pages/DashBoard/ManageItems/ManageItems";
+import AddItem from "../Pages/DashBoard/AddItem/AddItem";
+import UpdateItem from "../Pages/DashBoard/ManageItems/UpdateItem";
+import AdminHome from "../Pages/DashBoard/AdminHome/AdminHome";
 
   export const router = createBrowserRouter([
     {
@@ -36,10 +40,6 @@ import MyCart from "../Pages/DashBoard/MyCart/MyCart";
         {
           path: "/signup",
           element: <SignUp></SignUp>
-        },
-        {
-          path: "/secret",
-          element: <PrivateRoute><Secret></Secret></PrivateRoute>
         }
       ]
     },
@@ -47,9 +47,31 @@ import MyCart from "../Pages/DashBoard/MyCart/MyCart";
       element: <Dashboard></Dashboard>,
       path:'dashboard',
       children: [
+        // User Routes....
         {
           path: 'mycart',
-          element: <MyCart></MyCart>,
+          element: <PrivateRoute><MyCart></MyCart></PrivateRoute>
+        },
+        // Admin Routes....
+        {
+          path:'admin_home',
+          element:<PrivateRoute><AdminHome></AdminHome></PrivateRoute>
+        },
+        {
+          path:'all_users',
+          element:<PrivateRoute><AllUsers></AllUsers></PrivateRoute>
+        },
+        {
+          path: 'manage_items',
+          element:<PrivateRoute><ManageItems></ManageItems></PrivateRoute>
+        },
+        {
+          path: 'update_item/:id',
+          element:<PrivateRoute><UpdateItem></UpdateItem></PrivateRoute>
+        },
+        {
+          path: 'add_item',
+          element:<PrivateRoute><AddItem></AddItem></PrivateRoute>
         }
       ]
     }

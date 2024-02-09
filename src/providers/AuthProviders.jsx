@@ -1,9 +1,11 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import { app } from '../Config/firebase.config';
+// import axios from 'axios';
 
 export const AuthContext = createContext(null);
 const auth = getAuth(app);
+const provider = new GoogleAuthProvider();
 
 const AuthProviders = ({children}) => {
 
@@ -20,6 +22,11 @@ const AuthProviders = ({children}) => {
         return signInWithEmailAndPassword(auth, email, password);
     }
 
+    const handelGoogleSignIn = () =>{
+        setLoading(true);
+        return signInWithPopup(auth, provider);
+    }
+
     const logOut = () =>{
         setLoading(true);
         return signOut(auth);
@@ -30,6 +37,34 @@ const AuthProviders = ({children}) => {
             setUser(currentUser);
             console.log('Current User: ', currentUser);
             setLoading(false);
+
+            // Access token validation
+            // if(currentUser){
+            //     axios.post('http://localhost:5000/jwt', {email : currentUser.email})
+            //     .then(data =>{
+            //         // console.log(data.data.token);
+            //         localStorage.setItem('access-token', data.data.token)
+            //     })
+            // }
+            if(currentUser){
+                const loggedUser = {
+                    email : currentUser.email
+                  }
+                fetch('http://localhost:5000/jwt',{
+                    method: "POST",
+                    headers:{
+                    "content-type": "application/json"
+                    },
+                    body: JSON.stringify(loggedUser)
+                })
+                .then(res => res.json())
+                .then(data =>{
+                    localStorage.setItem('access-token', data.token);
+                })
+            }
+            else{
+                localStorage.removeItem('access-token')
+            }
         });
         return () =>{
             return unSubscribe();
@@ -41,6 +76,7 @@ const AuthProviders = ({children}) => {
         loading,
         signUp,
         signIn,
+        handelGoogleSignIn,
         logOut
     }
 

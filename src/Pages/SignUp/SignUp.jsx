@@ -6,6 +6,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
+import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 
 const SignUp = () => {
   const { signUp } = useContext(AuthContext);
@@ -25,8 +26,21 @@ const SignUp = () => {
     signUp(data.email, data.password)
       .then((result) => {
         console.log(result.user);
-        Swal.fire("Welcome to Bistro Boss");
-        navigate(from, { replace: true });
+        const userObj = { name: data.name, email: data.email };
+        fetch("http://localhost:5000/user", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(userObj),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.insertedId) {
+              Swal.fire("Welcome to Bistro Boss");
+              navigate(from, { replace: true });
+            }
+          });
       })
       .catch((error) => console.log(error));
   };
@@ -136,6 +150,7 @@ const SignUp = () => {
                 Got to Login
               </Link>
             </p>
+            <SocialLogin></SocialLogin>
           </div>
         </div>
       </div>
