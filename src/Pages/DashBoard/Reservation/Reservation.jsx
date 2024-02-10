@@ -22,6 +22,7 @@ const Reservation = () => {
       guest: guest,
       name: name,
       phone: phone,
+      price: parseFloat(guest * 2),
       email: email,
     };
     fetch("http://localhost:5000/reservation", {
