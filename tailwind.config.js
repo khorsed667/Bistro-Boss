@@ -8,7 +8,8 @@ export default {
     extend: {
       colors: {
         "main" : "#D99904",
-        "secoundary" : "rgba(209, 160, 84, 0.70)"
+        "secoundary" : "rgba(209, 160, 84, 0.70)",
+        "button-background" : " bg-gradient-to-r from-[#835d23] to-[#b3802f]"
       },
       backgroundImage: {
         'chef-service': "url('./src/assets/home/chef-service.jpg')",

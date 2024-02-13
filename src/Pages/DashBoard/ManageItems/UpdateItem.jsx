@@ -134,7 +134,7 @@ const UpdateItem = () => {
           />
           <input
             type="submit"
-            className="btn bg-[#D1A054] p-2 text-white w-5/12 mx-auto"
+            className="btn  bg-gradient-to-r from-[#835d23] to-[#b3802f] p-2 text-white w-5/12 mx-auto"
             value="Update Recipe Details"
           />
         </form>

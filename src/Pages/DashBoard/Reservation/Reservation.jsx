@@ -135,7 +135,7 @@ const Reservation = () => {
           </div>
           <input
             type="submit"
-            className="btn bg-secoundary text-white mt-5 mx-auto w-[160px]"
+            className="btn bg-gradient-to-r from-[#835d23] to-[#b3802f] text-white mt-5 mx-auto w-[160px]"
             value="Book A Table"
           />
         </form>

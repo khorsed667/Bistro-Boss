@@ -24,13 +24,13 @@ const Dashboard = () => {
   // const {user} = useContext(AuthContext);
   // console.log(user.email);
 
-  // const [usr] = useUser();
+  const [usr] = useUser();
   // const adminUser = usr.find(user => user.role === 'admin');
   // console.log(adminUser);
   // const isAdmin = user.email == adminUser.email;
   // console.log(isAdmin);
 
-  const isAdmin = false;
+  const isAdmin = usr?.role;
 
   return (
     <div className="drawer lg:drawer-open">

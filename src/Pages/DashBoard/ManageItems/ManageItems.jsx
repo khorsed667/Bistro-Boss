@@ -82,7 +82,7 @@ const ManageItems = () => {
                     <td>$ {item.price}</td>
                     <td>
                       <Link to={`/dashboard/update_item/${item._id}`}>
-                        <button className="btn bg-main text-white">
+                        <button className="btn  bg-gradient-to-r from-[#835d23] to-[#b3802f] text-white">
                           <FontAwesomeIcon icon={faPen} />
                         </button>
                       </Link>
