@@ -16,8 +16,8 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { NavLink, Outlet } from "react-router-dom";
 import useUser from "../hooks/useUser";
-import { useContext } from "react";
-import { AuthContext } from "../providers/AuthProviders";
+// import { useContext } from "react";
+// import { AuthContext } from "../providers/AuthProviders";
 
 const Dashboard = () => {
 

@@ -26,7 +26,7 @@ const Nav = () => {
       <Link to={"/"}>
         <p className="font-bold mx-2 text-white">Home</p>
       </Link>
-      <Link to={"/dashboard/admin_home"}>
+      <Link to={"/dashboard/home"}>
         <p className="font-bold mx-2 text-white">Dashboard</p>
       </Link>
       <Link to={"/menu"}>

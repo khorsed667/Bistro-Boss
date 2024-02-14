@@ -4,7 +4,7 @@ import { AuthContext } from '../providers/AuthProviders';
 
 const useReservation = () => {
 
-    const {user} = useContext(AuthContext)
+    const {user} = useContext(AuthContext);
 
     const{ data : reservation = [], refetch } = useQuery({
         queryKey:['reservation'],
