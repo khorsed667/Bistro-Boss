@@ -37,7 +37,7 @@ const Shop = () => {
         tittle={"Our Shop"}
         description={"Would you like to try a dish?"}
       ></Cover>
-      <div className="max-w-screen-xl mt-5 mx-auto">
+      <div className="max-w-screen-xl mt-5 mx-2">
         <Tabs defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
           <TabList>
             <Tab>Salad</Tab>

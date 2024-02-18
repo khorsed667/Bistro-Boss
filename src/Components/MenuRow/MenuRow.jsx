@@ -2,7 +2,7 @@ import React from 'react';
 
 const MenuRow = ({segment}) => {
     return (
-        <div className=" w-full">
+        <div className="w-full me-2">
             <div className="flex items-start my-2 justify-center w-full">
               <div>
                 <img
@@ -12,12 +12,12 @@ const MenuRow = ({segment}) => {
                 />
               </div>
               <div className="xsm:w-[280px] sm:w-[350px] xsm:mx-2 md:mx-5 lg:mx-10">
-                <p className="font-bold font-cinzel text-main">{segment.name}----------</p>
+                <p className="font-bold font-cinzel text-main">{segment.name}------</p>
                 <span className="w-1/3 xsm:text-xs md:text-base">
                   {segment.recipe}
                 </span>
               </div>
-              <div>
+              <div className='me-1'>
                 <p className="block text-main">$ {segment.price}</p>
               </div>
             </div>

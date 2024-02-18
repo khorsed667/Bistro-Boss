@@ -8,7 +8,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="h-[200px]">
+    <div className="sm:h-[200px]">
       <div className="flex justify-center items-center text-white xsm:flex-col sm:flex-row h-full">
         <div className="sm:w-1/2 xsm:w-full flex flex-col justify-center items-center py-3 bg-[#1F2937] h-full">
           <p className="text-2xl font-semibold">CONTACT US</p>
