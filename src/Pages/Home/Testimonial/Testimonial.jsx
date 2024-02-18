@@ -15,19 +15,19 @@ import { faCommentDots } from "@fortawesome/free-solid-svg-icons";
 
 const Testimonial = () => {
   return (
-    <div className="my-10 max-w-screen-xl mx-auto">
+    <div className="xsm:my-10 max-w-screen-xl mx-auto">
       <Headings
         subHeading={"What our clients say"}
         headings={"Testimonial"}
       ></Headings>
-      <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
+      <Swiper navigation={true} modules={[Navigation]} className="mySwiper mx-2">
         {reviews.map((rev, index) => (
           <SwiperSlide key={index}>
             <div className="w-full lg:px-16 text-center">
               <Rating className="mx-auto my-3" style={{ maxWidth: 180 }} value={rev.rating} readOnly />
               <FontAwesomeIcon className="text-7xl" icon={faCommentDots} />
-              <p>{rev.details}</p>
-              <p className="text-xl font-semibold text-main">{rev.name}</p>
+              <p className="mx-2">{rev.details}</p>
+              <p className="text-xl font-semibold text-main my-5">{rev.name}</p>
             </div>
           </SwiperSlide>
         ))}

@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const MyCart = () => {
   const [cart, refetch] = useCart();
@@ -52,9 +53,11 @@ const MyCart = () => {
           <p className="text-3xl uppercase font-cinzel">
             Total Amount: ${total}
           </p>
-          <button className="btn-sm bg-main rounded-md text-white font-semibold">
-            PAY
-          </button>
+          <Link to={"/dashboard/payment"}>
+            <button className="btn-sm bg-main rounded-md text-white font-semibold">
+              PAY
+            </button>
+          </Link>
         </div>
         <div>
           <div className="overflow-x-auto">

@@ -24,19 +24,19 @@ const Nav = () => {
   const navItems = (
     <>
       <Link to={"/"}>
-        <p className="font-bold mx-2 text-white">Home</p>
+        <p className="font-bold mx-2">Home</p>
       </Link>
       <Link to={"/dashboard/home"}>
-        <p className="font-bold mx-2 text-white">Dashboard</p>
+        <p className="font-bold mx-2">Dashboard</p>
       </Link>
       <Link to={"/menu"}>
-        <p className="font-bold mx-2 text-white">Our Menu</p>
+        <p className="font-bold mx-2">Our Menu</p>
       </Link>
       <Link to={`/shop/${category || "salad"}`}>
-        <p className="font-bold mx-2 text-white">Our Shop</p>
+        <p className="font-bold mx-2">Our Shop</p>
       </Link>
       {/* <Link to={"/signup"}>
-        <a className="font-bold mx-2 text-white">SignUp</a>
+        <a className="font-bold mx-2">SignUp</a>
       </Link> */}
       {user ? (
         <>
@@ -45,7 +45,7 @@ const Nav = () => {
       ) : (
         <>
           <Link to={"/login"}>
-            <p className="font-bold mx-2 text-white">Login</p>
+            <p className="font-bold mx-2">Login</p>
           </Link>
         </>
       )}
@@ -74,17 +74,19 @@ const Nav = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu menu-sm dropdown-content text-black mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
             {navItems}
           </ul>
         </div>
         <div>
+          <Link to={'/'}>
           <img className="w-[50px]" src={logo} alt="" />
+          </Link>
         </div>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">{navItems}</ul>
+        <ul className="menu menu-horizontal text-white px-1">{navItems}</ul>
       </div>
       <div className="navbar-end cursor-pointer">
         <div className="relative mx-2">

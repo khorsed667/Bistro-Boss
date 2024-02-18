@@ -20,6 +20,7 @@ import UserHome from "../Pages/DashBoard/UserHome/UserHome";
 import Payment from "../Pages/DashBoard/Payment/Payment";
 import UserReview from "../Pages/DashBoard/Review/UserReview";
 import UserBookings from "../Pages/DashBoard/UserBookings/UserBookings";
+import PaymentHistory from "../Pages/DashBoard/PaymentHistory/PaymentHistory";
 
   export const router = createBrowserRouter([
     {
@@ -63,7 +64,7 @@ import UserBookings from "../Pages/DashBoard/UserBookings/UserBookings";
         },
         {
           path:'payment_history',
-          element:<PrivateRoute><Payment></Payment></PrivateRoute>
+          element:<PrivateRoute><PaymentHistory></PaymentHistory></PrivateRoute>
         },
         {
           path: 'mycart',
@@ -76,6 +77,10 @@ import UserBookings from "../Pages/DashBoard/UserBookings/UserBookings";
         {
           path:'review',
           element:<PrivateRoute><UserReview></UserReview></PrivateRoute>
+        },
+        {
+          path:'payment',
+          element:<PrivateRoute><Payment></Payment></PrivateRoute>
         },
         // Admin Routes....
         {

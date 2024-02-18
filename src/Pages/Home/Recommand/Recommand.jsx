@@ -11,7 +11,7 @@ const Recommand = () => {
         subHeading={"Should try"}
         headings={"Chafe Recommanded"}
       ></Headings>
-      <div className="grid lg:grid-cols-3 md:grid-cols-2 xsm:grid-cols-1 gap-10">
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 xsm:grid-cols-1 gap-10 mx-2">
         {recommandedItems.map((reco, index) => (
           <div key={index}>
             <div className="card card-compact w-full bg-base-100 shadow-xl">
