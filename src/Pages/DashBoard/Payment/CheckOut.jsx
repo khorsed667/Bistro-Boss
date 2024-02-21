@@ -1,7 +1,9 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import React, { useContext, useEffect, useState } from "react";
-import useMenu from "../../../hooks/useMenu";
 import { AuthContext } from "../../../providers/AuthProviders";
+import useCart from "../../../hooks/useCart";
+import Swal from "sweetalert2";
+import "./checkOutCard.css";
 
 const CheckOut = () => {
   const { user } = useContext(AuthContext);
@@ -9,8 +11,10 @@ const CheckOut = () => {
   const elements = useElements();
   const [cardError, setCardError] = useState("");
   const [clientSecret, setClientSecret] = useState("");
-  const [menu] = useMenu();
-  const totalPrice = menu.reduce((sum, item) => sum + item.price, 0);
+  const [tranjectionId, setTranjectonId] = useState("");
+  const [processing, setProcessing] = useState(false);
+  const [cart, refetch] = useCart();
+  const totalPrice = cart?.reduce((sum, item) => item.price + sum, 0);
   const price = parseFloat(totalPrice.toFixed(2));
 
   useEffect(() => {
@@ -37,7 +41,7 @@ const CheckOut = () => {
     if (card == null) {
       return;
     }
-
+    setProcessing(true);
     const { error, paymentMethod } = await stripe.createPaymentMethod({
       type: "card",
       card,
@@ -62,18 +66,52 @@ const CheckOut = () => {
     if (confirmError) {
       setCardError(confirmError);
     }
-    console.log(paymentIntent);
+    console.log("payment-intent: ", paymentIntent);
+    setProcessing(false);
+    if (paymentIntent.status === "succeeded") {
+      setTranjectonId(paymentIntent.id);
+      // save cart info into server
+      const payment = {
+        email: user?.email,
+        price,
+        tranjectionId: paymentIntent.id,
+        totalItems: cart.length,
+        cartID: cart.map((item) => item._id),
+        itemID: cart.map((iem) => iem.itemId),
+        status: 'Order Pending....'
+      };
+      fetch("http://localhost:5000/payment", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(payment),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data.deleteResult.deletedCount);
+          if (data.insetResult.insertedId && data.deleteResult.deletedCount) {
+            refetch();
+            Swal.fire({
+              icon: "success",
+              title: "Payment Successful!",
+              showConfirmButton: false,
+              timer: 1500,
+            });
+          }
+        });
+    }
   };
 
   return (
     <div>
-      <form className="w-5/6 mx-auto" onSubmit={handleSubmit}>
+      <form className=" mx-auto" onSubmit={handleSubmit}>
         <CardElement
-          className="my-5"
+          className="my-5 w-full"
           options={{
             style: {
               base: {
-                fontSize: "16px",
+                fontSize: "32px",
                 color: "#424770",
                 "::placeholder": {
                   color: "#aab7c4",
@@ -88,7 +126,7 @@ const CheckOut = () => {
         <button
           className="btn bg-main my-5 btn-sm"
           type="submit"
-          disabled={!stripe || !clientSecret}
+          disabled={!stripe || !clientSecret || processing}
         >
           Pay
         </button>
@@ -96,6 +134,12 @@ const CheckOut = () => {
       {!clientSecret && <p className="font-bold ms-24">Please Wait....</p>}
       {cardError && (
         <p className="text-red-600 ms-10 mt-6">{cardError.message}</p>
+      )}
+      {tranjectionId && (
+        <p className="text-green-600 ms-10 font-bold mt-6">
+          Payment recieved successfully and your Tranjection-Id :{" "}
+          {tranjectionId}
+        </p>
       )}
     </div>
   );
