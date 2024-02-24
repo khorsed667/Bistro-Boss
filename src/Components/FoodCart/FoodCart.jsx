@@ -22,7 +22,7 @@ const FoodCart = ({ item }) => {
       userEmail: user.email,
     };
     if (user.email) {
-      fetch("http://localhost:5000/cart", {
+      fetch("https://bistro-server-psi.vercel.app/cart", {
         method: "POST",
         headers: {
           "content-type": "application/json",

@@ -40,7 +40,7 @@ const Nav = () => {
       </Link> */}
       {user ? (
         <>
-          <button onClick={handelLogOut}>LogOut</button>
+          <p className="cursor-pointer" onClick={handelLogOut}>LogOut</p>
         </>
       ) : (
         <>
@@ -80,8 +80,8 @@ const Nav = () => {
           </ul>
         </div>
         <div>
-          <Link to={'/'}>
-          <img className="w-[50px]" src={logo} alt="" />
+          <Link to={"/"}>
+            <img className="w-[50px]" src={logo} alt="" />
           </Link>
         </div>
       </div>
@@ -91,9 +91,11 @@ const Nav = () => {
       <div className="navbar-end cursor-pointer">
         <div className="relative mx-2">
           <div className="badge absolute mt-[-15px] bg-main outline-none text-white left-5">
-            {cart?.length || ''}
+            {cart?.length || ""}
           </div>
-          <Link to={'/dashboard/mycart'}><FontAwesomeIcon className="text-2xl me-5" icon={faCartShopping} /></Link>
+          <Link to={"/dashboard/mycart"}>
+            <FontAwesomeIcon className="text-2xl me-5" icon={faCartShopping} />
+          </Link>
         </div>
         <div>
           <FontAwesomeIcon className="text-2xl me-5" icon={faUser} />

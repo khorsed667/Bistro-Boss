@@ -25,7 +25,7 @@ const Reservation = () => {
       price: parseFloat(guest * 2),
       email: email,
     };
-    fetch("http://localhost:5000/reservation", {
+    fetch("https://bistro-server-psi.vercel.app/reservation", {
       method: "POST",
       headers: {
         "content-type": "application/json",

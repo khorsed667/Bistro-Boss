@@ -19,7 +19,7 @@ const CheckOut = () => {
 
   useEffect(() => {
     if (price !== null && price !== undefined && price !== 0) {
-      fetch("http://localhost:5000/create-payment-intent", {
+      fetch("https://bistro-server-psi.vercel.app/create-payment-intent", {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -80,7 +80,7 @@ const CheckOut = () => {
         itemID: cart.map((iem) => iem.itemId),
         status: 'Order Pending....'
       };
-      fetch("http://localhost:5000/payment", {
+      fetch("https://bistro-server-psi.vercel.app/payment", {
         method: "POST",
         headers: {
           "content-type": "application/json",

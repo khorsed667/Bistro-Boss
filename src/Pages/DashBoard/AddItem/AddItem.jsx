@@ -38,7 +38,7 @@ const AddItem = () => {
           };
           console.log(newItem);
 
-          fetch("http://localhost:5000/menu", {
+          fetch("https://bistro-server-psi.vercel.app/menu", {
             method: "POST",
             headers: {
               "content-type": "application/json",

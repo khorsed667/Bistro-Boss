@@ -13,13 +13,13 @@ const AllUsers = () => {
   const { data: users = [], refetch } = useQuery({
     queryKey: ["user"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/user");
+      const res = await fetch("https://bistro-server-psi.vercel.app/user");
       return res.json();
     },
   });
 
   const handelUpdateRole = (user) => {
-    fetch(`http://localhost:5000/user/admin/${user._id}`, {
+    fetch(`https://bistro-server-psi.vercel.app/user/admin/${user._id}`, {
       method: "PATCH",
     })
       .then((res) => res.json())

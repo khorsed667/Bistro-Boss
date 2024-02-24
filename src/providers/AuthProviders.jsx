@@ -40,7 +40,7 @@ const AuthProviders = ({children}) => {
 
             // Access token validation
             // if(currentUser){
-            //     axios.post('http://localhost:5000/jwt', {email : currentUser.email})
+            //     axios.post('https://bistro-server-psi.vercel.app/jwt', {email : currentUser.email})
             //     .then(data =>{
             //         // console.log(data.data.token);
             //         localStorage.setItem('access-token', data.data.token)
@@ -50,7 +50,7 @@ const AuthProviders = ({children}) => {
                 const loggedUser = {
                     email : currentUser.email
                   }
-                fetch('http://localhost:5000/jwt',{
+                fetch('https://bistro-server-psi.vercel.app/jwt',{
                     method: "POST",
                     headers:{
                     "content-type": "application/json"

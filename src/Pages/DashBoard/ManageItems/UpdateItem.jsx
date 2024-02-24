@@ -41,7 +41,7 @@ const UpdateItem = () => {
             price: parseFloat(price),
           };
 
-          fetch(`http://localhost:5000/menu/${itemId.id}`, {
+          fetch(`https://bistro-server-psi.vercel.app/menu/${itemId.id}`, {
             method: "PATCH",
             headers: {
               "content-type": "application/json",
