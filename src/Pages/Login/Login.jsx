@@ -38,17 +38,17 @@ const Login = () => {
         style={{ backgroundImage: `url(${background})` }}
       >
         <div
-          className="hero-content flex-col lg:flex-row border p-20 shadow-black"
+          className="hero-content flex-col lg:flex-row border justify-center md:p-20 shadow-black"
           style={{
             backgroundImage: `url(${background})`,
             boxShadow: "10px 10px 10px 10px rgba(0, 0, 0, 0.25)",
           }}
         >
-          <div className="text-center w-1/2 lg:text-left">
+          <div className="text-center w-1/2 xsm:hidden lg:block lg:text-left">
             <img src={authenticationSidePhoto}></img>
           </div>
-          <div className="card w-1/2 max-w-sm shadow-2xl bg-base-100">
-            <form onSubmit={handelLogin} className="card-body">
+          <div className="card lg:w-1/2 xsm:w-full m-10 shadow-2xl bg-base-100">
+            <form onSubmit={handelLogin} className="card-body my-0">
               <h1 className="text-2xl font-bold text-center">Login</h1>
               <div className="form-control">
                 <label className="label">
@@ -57,8 +57,8 @@ const Login = () => {
                 <input
                   type="email"
                   name="email"
-                  placeholder="email"
-                  className="input input-bordered"
+                  placeholder="Input Your Email"
+                  className="input input-bordered bg-slate-100 my-0"
                   required
                 />
               </div>
@@ -69,8 +69,8 @@ const Login = () => {
                 <input
                   type="password"
                   name="password"
-                  placeholder="password"
-                  className="input input-bordered"
+                  placeholder="Input Your Password"
+                  className="input input-bordered bg-slate-100 my-0"
                   required
                 />
                 <label className="label">

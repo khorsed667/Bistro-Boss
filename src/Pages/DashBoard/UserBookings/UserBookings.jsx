@@ -45,12 +45,12 @@ const UserBookings = () => {
         <title>My Bookings | Bistro Boss</title>
       </Helmet>
       <Headings subHeading={'Excillent Ambience'} headings={'my bookings'}></Headings>
-      <div className="w-5/6 mx-auto bg-white m-5 p-5">
-        <div className="flex justify-between items-center my-5">
-          <p className="text-3xl uppercase font-cinzel">
+      <div className="md:w-5/6 mx-auto bg-white m-5 p-5">
+        <div className="flex flex-col md:flex-row justify-between items-center my-5">
+          <p className="text-xl lg:text-3xl uppercase font-cinzel">
             Total bookings: {reservation.length}
           </p>
-          <p className="text-3xl uppercase font-cinzel">
+          <p className="text-xl lg:text-3xl uppercase font-cinzel">
             Total Amount: ${total}
           </p>
           <button className="btn-sm bg-[#D1A054] rounded-md text-white font-semibold">
@@ -61,7 +61,7 @@ const UserBookings = () => {
           <div className="overflow-x-auto">
             <table className="table">
               {/* head */}
-              <thead className="bg-[#D1A054] text-center">
+              <thead className="bg-[#D1A054] text-center text-white">
                 <tr>
                   <th>
                     <label></label>

@@ -58,7 +58,7 @@ const Reservation = () => {
           className="flex flex-col justify-center"
           onSubmit={handelReservation}
         >
-          <div className="grid grid-cols-3 gap-5 ms-10">
+          <div className="grid md:grid-cols-3 xsm:grid-cols-2 gap-5 md:ms-10 xsm:mx-2">
             <label className="form-control w-full max-w-xs">
               <div className="label">
                 <span className="label-text font-semibold">Date*</span>

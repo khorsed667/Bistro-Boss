@@ -1,6 +1,7 @@
 import React from "react";
 import image from "./../../../assets/home/featured.jpg";
 import Headings from "../../../Components/Headings/Headings";
+import HomeButton from "../../../Components/HomeButton/HomeButton";
 
 const Feature = () => {
   return (
@@ -22,7 +23,15 @@ const Feature = () => {
             sed repudiandae, nemo repellat quos perspiciatis quam ab similique!
             Sint voluptatum neque quae.
           </p>
-          <button className="btn btn-outline border-b-4 border-main border-0">Read More</button>
+          {/* <button className="btn btn-outline border-b-4 border-main border-0"></button> */}
+          <div className="w-1/4">
+            <HomeButton
+              background={"transparent"}
+              mainColor={"white"}
+              mainText={"Read More"}
+              hoverBackground={"[#1F2937]"}
+            ></HomeButton>
+          </div>
         </div>
       </div>
     </div>

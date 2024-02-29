@@ -56,7 +56,7 @@ const UserReview = () => {
         subHeading={"Sharing is Caring"}
         headings={"Add a review"}
       ></Headings>
-      <div className="w-5/6 mx-auto flex justify-cente flex-col bg-white py-16">
+      <div className="lg:w-5/6 mx-auto flex justify-cente flex-col bg-white md:py-16">
         <p className="text-3xl my-4 font-cinzel text-center font-bold">
           RATE US!
         </p>
@@ -68,8 +68,8 @@ const UserReview = () => {
             onClick={handleRatingClick}
           />
         </div>
-        <form onSubmit={handelReview} action="">
-          <label className="form-control w-2/3 mx-auto my-8">
+        <form className="mx-5 flex justify-center flex-col" onSubmit={handelReview} action="">
+          <label className="form-control lg:w-2/3 mx-auto my-8">
             <div className="label">
               <span className="label-text font-semibold">
                 What is your thinking about this project?
@@ -82,7 +82,7 @@ const UserReview = () => {
               className="input input-bordered w-full"
             />
           </label>
-          <label className="form-control w-2/3 mx-auto my-4">
+          <label className="form-control lg:w-2/3 mx-auto my-4">
             <div className="label">
               <span className="label-text font-semibold">
                 Do you have any sugession to me?
@@ -98,7 +98,7 @@ const UserReview = () => {
           <input
             type="submit"
             value="Send Review"
-            className="btn bg-gradient-to-r from-[#835d23] to-[#b3802f] text-white my-3 ms-40"
+            className="btn bg-gradient-to-r from-[#835d23] to-[#b3802f] text-white my-3 md:ms-40 ms-5"
           />
         </form>
       </div>

@@ -70,12 +70,7 @@ const FoodCart = ({ item }) => {
           <h2 className="text-2xl font-semibold">{name}</h2>
           <p>{recipe}</p>
           <div className="card-actions mx-auto">
-            <button
-              onClick={() => handelAddToCart(item)}
-              className="btn border-b-4 text-main border-b-main btn-outline"
-            >
-              Add to Cart
-            </button>
+            <div onClick={() => handelAddToCart(item)} className="px-5 py-2 bg-white hover:bg-[#1F2937] transition-all duration-700 text-main rounded-lg border-b-4 font-semibold hover:border-b-0 border-main my-3">Add to Cart</div>
           </div>
         </div>
       </div>

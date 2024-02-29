@@ -59,7 +59,7 @@ const SignUp = () => {
   //   };
 
   return (
-    <>
+    <div className="w-full">
       <Helmet>
         <title>SignUp | Bistro Boss</title>
       </Helmet>
@@ -68,17 +68,17 @@ const SignUp = () => {
         style={{ backgroundImage: `url(${background})` }}
       >
         <div
-          className="hero-content flex-col lg:flex-row border p-20 shadow-black"
+          className="hero-content flex-col lg:flex-row border justify-center md:p-20 shadow-black"
           style={{
             backgroundImage: `url(${background})`,
             boxShadow: "10px 10px 10px 10px rgba(0, 0, 0, 0.25)",
           }}
         >
-          <div className="text-center w-1/2 lg:text-left">
+          <div className="text-center w-1/2 xsm:hidden lg:block lg:text-left">
             <img src={authenticationSidePhoto}></img>
           </div>
-          <div className="card w-1/2 max-w-sm shadow-2xl bg-base-100">
-            <form onSubmit={handleSubmit(onSubmit)} className="card-body">
+          <div className="card lg:w-1/2 xsm:w-full m-10 shadow-2xl bg-base-100">
+            <form onSubmit={handleSubmit(onSubmit)} className="card-body my-0">
               <h1 className="text-2xl font-bold text-center">SignUp</h1>
               <div className="form-control">
                 <label className="label">
@@ -88,7 +88,7 @@ const SignUp = () => {
                   type="name"
                   name="name"
                   placeholder="name"
-                  className="input input-bordered"
+                  className="input input-bordered bg-slate-100 my-0"
                   {...register("name", { required: true })}
                 />
                 {errors.name && (
@@ -103,7 +103,7 @@ const SignUp = () => {
                   type="email"
                   name="email"
                   placeholder="email"
-                  className="input input-bordered"
+                  className="input input-bordered bg-slate-100 my-0"
                   {...register("email", { required: true })}
                 />
                 {errors.email && (
@@ -118,7 +118,7 @@ const SignUp = () => {
                   type="password"
                   name="password"
                   placeholder="password"
-                  className="input input-bordered"
+                  className="input input-bordered bg-slate-100 my-0"
                   {...register("password", {
                     required: true,
                     minLength: 6,
@@ -154,7 +154,7 @@ const SignUp = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

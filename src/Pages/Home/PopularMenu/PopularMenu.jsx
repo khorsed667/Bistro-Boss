@@ -30,7 +30,7 @@ const PopularMenu = () => {
                 <p className="font-bold font-cinzel text-main">
                   {mnu.name}----------
                 </p>
-                <span className="w-1/3 xsm:text-xs md:text-base">
+                <span className="w-1/3 xsm:text-xs md:text-sm">
                   {mnu.recipe}
                 </span>
               </div>
@@ -43,9 +43,10 @@ const PopularMenu = () => {
       </div>
       <div className="w-full flex justify-center items-center">
         <Link to={'/menu'}>
-          <button className="mx-auto btn border-b-4 text-main border-b-main">
+          {/* <button className="btn border-b-2 text-main border-b-main">
             View Full Manu
-          </button>
+          </button> */}
+          <div className="px-5 py-2 bg-white hover:bg-[#1F2937] text-[#1F2937] rounded-lg border-b-4 hover:border-b-0 transition-all duration-700 font-semibold hover:text-white border-[#1F2937] my-3">View Full Menu</div>
         </Link>
       </div>
     </div>

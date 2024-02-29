@@ -10,6 +10,7 @@ const MyCart = () => {
   const [cart, refetch] = useCart();
 
   const total = cart?.reduce((sum, item) => item.price + sum, 0);
+  const totalAmount = total.toFixed(2);
 
   const handelDelete = (itm) => {
     Swal.fire({
@@ -45,16 +46,16 @@ const MyCart = () => {
       <Helmet>
         <title>My Cart | Bistro Boss</title>
       </Helmet>
-      <div className="w-5/6 mx-auto bg-white m-5 p-5">
-        <div className="flex justify-between items-center my-5">
-          <p className="text-3xl uppercase font-cinzel">
+      <div className="lg:w-5/6 mx-auto bg-white m-5 p-5">
+        <div className="flex xsm:flex-col md:flex-row justify-between items-center my-5">
+          <p className="text-xl lg:text-3xl uppercase font-cinzel">
             Total orders: {cart.length}
           </p>
-          <p className="text-3xl uppercase font-cinzel">
-            Total Amount: ${total}
+          <p className="text-xl lg:text-3xl uppercase font-cinzel">
+            Total Amount: ${totalAmount}
           </p>
           <Link to={"/dashboard/payment"}>
-            <button className="btn-sm bg-main rounded-md text-white font-semibold">
+            <button className="btn-sm bg-[#D1A054] rounded-md text-white font-semibold">
               PAY
             </button>
           </Link>
@@ -64,7 +65,7 @@ const MyCart = () => {
             <table className="table">
               {/* head */}
               <thead>
-                <tr>
+                <tr className="bg-[#D1A054] text-white">
                   <th>
                     <label></label>
                   </th>
@@ -93,7 +94,7 @@ const MyCart = () => {
                     <th>
                       <button
                         onClick={() => handelDelete(itm)}
-                        className="btn bg-main text-white"
+                        className="btn bg-[#D1A054] text-white"
                       >
                         <FontAwesomeIcon icon={faTrash} />
                       </button>

@@ -40,12 +40,12 @@ const Dashboard = () => {
         <Outlet></Outlet>
         <label
           htmlFor="my-drawer-2"
-          className="btn btn-primary drawer-button lg:hidden"
+          className="btn bg-gradient-to-r from-[#835d23] to-[#b3802f] text-white mt-5 mx-auto lg:hidden"
         >
           Open drawer
         </label>
       </div>
-      <div className="drawer-side bg-[#D1A054]">
+      <div className="drawer-side lg:bg-[#D1A054]">
         <label
           htmlFor="my-drawer-2"
           aria-label="close sidebar"
@@ -59,7 +59,7 @@ const Dashboard = () => {
             Restaurant
           </p>
         </div>
-        <ul className="menu p-4 w-80 min-h-full text-base-content">
+        <ul className="menu p-4 w-80 min-h-full text-base-content xsm:bg-[#D1A054] lg:bg-transparent">
           {/* Sidebar content here */}
           <nav id="sidebar">
             {isAdmin ? (
