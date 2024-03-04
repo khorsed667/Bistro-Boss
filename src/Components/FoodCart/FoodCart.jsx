@@ -59,7 +59,7 @@ const FoodCart = ({ item }) => {
 
   return (
     <div>
-      <div className="card card-compact w-full bg-base-100 shadow-xl">
+      <div className="card card-compact md:h-[500px] w-full bg-base-100 shadow-xl">
         <figure>
           <img className="w-full" src={image} alt="Shoes" />
         </figure>
@@ -70,7 +70,7 @@ const FoodCart = ({ item }) => {
           <h2 className="text-2xl font-semibold">{name}</h2>
           <p>{recipe}</p>
           <div className="card-actions mx-auto">
-            <div onClick={() => handelAddToCart(item)} className="px-5 py-2 bg-white hover:bg-[#1F2937] transition-all duration-700 text-main rounded-lg border-b-4 font-semibold hover:border-b-0 border-main my-3">Add to Cart</div>
+            <div onClick={() => handelAddToCart(item)} className="px-5 cursor-pointer py-2 bg-white hover:bg-[#1F2937] transition-all duration-700 text-main rounded-lg border-b-4 font-semibold hover:border-b-0 border-main my-3">Add to Cart</div>
           </div>
         </div>
       </div>

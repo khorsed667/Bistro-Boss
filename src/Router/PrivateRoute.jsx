@@ -11,7 +11,7 @@ const PrivateRoute = ({children}) => {
         return children;
     }
     if(loading){
-        return <progress className="progress w-full"></progress>;
+        return <progress className="progress w-5/6 flex justify-center items-center"></progress>;
     }
     return <Navigate to={'/login'} state={{from:location}} replace></Navigate>;
 };
