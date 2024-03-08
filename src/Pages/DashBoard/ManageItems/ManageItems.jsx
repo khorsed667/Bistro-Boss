@@ -22,7 +22,7 @@ const ManageItems = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://bistro-server-psi.vercel.app/menu/${itm._id}`, {
+        fetch(`https://bistro-boss-server-9677.onrender.com/menu/${itm._id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

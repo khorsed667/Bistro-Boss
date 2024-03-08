@@ -19,7 +19,7 @@ const CheckOut = () => {
 
   useEffect(() => {
     if (price !== null && price !== undefined && price !== 0) {
-      fetch("https://bistro-server-psi.vercel.app/create-payment-intent", {
+      fetch("https://bistro-boss-server-9677.onrender.com/create-payment-intent", {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -80,7 +80,7 @@ const CheckOut = () => {
         itemID: cart.map((iem) => iem.itemId),
         status: 'Order Pending....'
       };
-      fetch("https://bistro-server-psi.vercel.app/payment", {
+      fetch("https://bistro-boss-server-9677.onrender.com/payment", {
         method: "POST",
         headers: {
           "content-type": "application/json",

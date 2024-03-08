@@ -27,7 +27,7 @@ const SocialLogin = () => {
           name: loggedUser.displayName,
           email: loggedUser.email,
         };
-        fetch("https://bistro-server-psi.vercel.app/user", {
+        fetch("https://bistro-boss-server-9677.onrender.com/user", {
           method: "POST",
           headers: {
             "content-type": "application/json",

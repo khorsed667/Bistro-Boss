@@ -40,7 +40,7 @@ const AuthProviders = ({children}) => {
 
             // Access token validation
             // if(currentUser){
-            //     axios.post('https://bistro-server-psi.vercel.app/jwt', {email : currentUser.email})
+            //     axios.post('https://bistro-boss-server-9677.onrender.com/jwt', {email : currentUser.email})
             //     .then(data =>{
             //         // console.log(data.data.token);
             //         localStorage.setItem('access-token', data.data.token)
@@ -50,7 +50,7 @@ const AuthProviders = ({children}) => {
                 const loggedUser = {
                     email : currentUser.email
                   }
-                fetch('https://bistro-server-psi.vercel.app/jwt',{
+                fetch('https://bistro-boss-server-9677.onrender.com/jwt',{
                     method: "POST",
                     headers:{
                     "content-type": "application/json"

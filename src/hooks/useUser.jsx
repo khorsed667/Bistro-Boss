@@ -10,7 +10,7 @@ const useUser = () => {
     queryKey: ["user"],
     queryFn: async () => {
       const res = await fetch(
-        `https://bistro-server-psi.vercel.app/user/${user?.email}`
+        `https://bistro-boss-server-9677.onrender.com/user/${user?.email}`
       );
       return res.json();
     },

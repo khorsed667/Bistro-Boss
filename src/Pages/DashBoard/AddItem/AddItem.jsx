@@ -38,7 +38,7 @@ const AddItem = () => {
           };
           console.log(newItem);
 
-          fetch("https://bistro-server-psi.vercel.app/menu", {
+          fetch("https://bistro-boss-server-9677.onrender.com/menu", {
             method: "POST",
             headers: {
               "content-type": "application/json",

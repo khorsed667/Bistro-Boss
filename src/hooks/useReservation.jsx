@@ -9,11 +9,10 @@ const useReservation = () => {
     const{ data : reservation = [], refetch } = useQuery({
         queryKey:['reservation'],
         queryFn: async() =>{
-            const res = await fetch(`https://bistro-server-psi.vercel.app/reservation/${user?.email}`)
+            const res = await fetch(`https://bistro-boss-server-9677.onrender.com/reservation/${user?.email}`)
             return res.json()
         }
     })
-    console.log(reservation);
     return [reservation, refetch];
 };
 

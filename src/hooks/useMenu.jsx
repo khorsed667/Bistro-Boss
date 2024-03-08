@@ -16,12 +16,14 @@ const useMenu = () => {
     //     })
     // },[])
 
+    // https://bistro-server-psi.vercel.app
+
     // Using Tan Stack Query for loading data from backend...
 
     const { data : menu = [], refetch } = useQuery({
         queryKey: ["menu"],
         queryFn: async () =>{
-            const res = await fetch('https://bistro-server-psi.vercel.app/menu');
+            const res = await fetch('https://bistro-boss-server-9677.onrender.com/menu');
             return res.json();
         }
     })

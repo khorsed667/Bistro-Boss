@@ -22,7 +22,7 @@ const RecoItemCart = ({item}) => {
         userEmail: user.email,
       };
       if (user.email) {
-        fetch("https://bistro-server-psi.vercel.app/cart", {
+        fetch("https://bistro-boss-server-9677.onrender.com/cart", {
           method: "POST",
           headers: {
             "content-type": "application/json",

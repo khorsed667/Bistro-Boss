@@ -13,13 +13,13 @@ const AllUsers = () => {
   const { data: users = [], refetch } = useQuery({
     queryKey: ["user"],
     queryFn: async () => {
-      const res = await fetch("https://bistro-server-psi.vercel.app/user");
+      const res = await fetch("https://bistro-boss-server-9677.onrender.com/user");
       return res.json();
     },
   });
 
   const handelUpdateRole = (user) => {
-    fetch(`https://bistro-server-psi.vercel.app/user/admin/${user._id}`, {
+    fetch(`https://bistro-boss-server-9677.onrender.com/user/admin/${user._id}`, {
       method: "PATCH",
     })
       .then((res) => res.json())

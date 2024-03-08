@@ -27,7 +27,7 @@ const UserReview = () => {
       thinking: thinking,
       sugession: sugession,
     };
-    fetch("https://bistro-server-psi.vercel.app/review", {
+    fetch("https://bistro-boss-server-9677.onrender.com/review", {
       method: "POST",
       headers: {
         "content-type": "application/json",

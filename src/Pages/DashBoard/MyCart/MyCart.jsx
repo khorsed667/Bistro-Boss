@@ -23,7 +23,7 @@ const MyCart = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://bistro-server-psi.vercel.app/cart/${itm._id}`, {
+        fetch(`https://bistro-boss-server-9677.onrender.com/cart/${itm._id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
