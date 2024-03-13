@@ -64,75 +64,71 @@ const SignUp = () => {
       <Helmet>
         <title>SignUp | Bistro Boss</title>
       </Helmet>
-      {progression === true? (
-        <div className="w-full flex flex-col justify-center items-center mt-52 bg-none">
-        <span className="loading loading-spinner w-1/6"></span>
-        <p className="text-5xl">Please Wait... </p>
-      </div>
+      {progression === true ? (
+        <div className="w-full h-[100vh] flex flex-col justify-center items-center bg-none">
+          <span className="loading loading-spinner w-1/6"></span>
+          <p className="text-5xl">Please Wait... </p>
+        </div>
       ) : (
         <div
-          className="hero min-h-screen bg-base-200"
           style={{ backgroundImage: `url(${background})` }}
+          className="flex items-center justify-center w-full h-[100vh]"
         >
-          <div
-            className="hero-content flex-col lg:flex-row border justify-center md:p-20 shadow-black"
-            style={{
-              backgroundImage: `url(${background})`,
-              boxShadow: "10px 10px 10px 10px rgba(0, 0, 0, 0.25)",
-            }}
-          >
-            <div className="text-center w-1/2 xsm:hidden lg:block lg:text-left">
-              <img src={authenticationSidePhoto}></img>
+          <div className="flex xsm:flex-col lg:flex-row justify-between items-center xsm:w-[90%] lg:w-5/6">
+            <div>
+              <img
+                className="xsm:hidden lg:block w-full"
+                src={authenticationSidePhoto}
+                alt=""
+              />
             </div>
-            <div className="card lg:w-1/2 xsm:w-full m-10 shadow-2xl bg-base-100">
+            <div className="bg-white lg:flex justify-center flex-col p-4 rounded-2xl xsm:w-5/6 lg:w-1/2">
               <form
                 onSubmit={handleSubmit(onSubmit)}
-                className="card-body my-0"
+                action=""
+                className="xsm:my-0 lg:my-7"
               >
-                <h1 className="text-2xl font-bold text-center">SignUp</h1>
-                <div className="form-control">
-                  <label className="label">
-                    <span className="label-text font-bold">Name</span>
+                <h1 className="text-4xl text-center font-semibold">SignUp</h1>
+                <div className="my-3">
+                  <label>
+                    <span>Name</span>
                   </label>
                   <input
+                    className="bg-slate-100"
+                    placeholder="Enter your name"
                     type="name"
-                    name="name"
-                    placeholder="name"
-                    className="input input-bordered bg-slate-100 my-0"
                     {...register("name", { required: true })}
                   />
                   {errors.name && (
                     <span className="text-red-500">This field is required</span>
                   )}
                 </div>
-                <div className="form-control">
-                  <label className="label">
-                    <span className="label-text font-bold">Email</span>
+                <div className="my-3">
+                  <label>
+                    <span>Email</span>
                   </label>
                   <input
+                    className="bg-slate-100"
+                    placeholder="Enter your email"
                     type="email"
-                    name="email"
-                    placeholder="email"
-                    className="input input-bordered bg-slate-100 my-0"
                     {...register("email", { required: true })}
                   />
                   {errors.email && (
                     <span className="text-red-500">This field is required</span>
                   )}
                 </div>
-                <div className="form-control">
-                  <label className="label">
-                    <span className="label-text font-bold">Password</span>
+                <div className="my-3">
+                  <label>
+                    <span>Password</span>
                   </label>
                   <input
+                    className=" bg-slate-100"
+                    placeholder="Enter your password"
                     type="password"
-                    name="password"
-                    placeholder="password"
-                    className="input input-bordered bg-slate-100 my-0"
                     {...register("password", {
                       required: true,
                       minLength: 6,
-                      // TODO: Need to impliment regular expression fro password validation
+                      // TODO: Need to impliment regular expression for password validation
                       // pattern: /^(?=.*\p{Ll})(?=.*\p{Lu})(?=.*[\d|@#$!%*?&])[\p{L}\d@#$!%*?&]{8,96}$/
                     })}
                   />
@@ -146,13 +142,11 @@ const SignUp = () => {
                   )}
                   {/* {errors.password?.type === 'pattern'  && <span className="text-red-500">one small, one large, one special character & one digit must be included</span>} */}
                 </div>
-                <div className="form-control mt-6">
-                  <input
-                    className="btn bg-secoundary text-white font-semibold"
-                    type="submit"
-                    value="SignUp"
-                  />
-                </div>
+                <input
+                  className="w-2/5 mt-5 cursor-pointer bg-secoundary text-white font-semibold"
+                  type="submit"
+                  value="SignUp"
+                />
               </form>
               <p className="text-center">
                 Already registered?{" "}

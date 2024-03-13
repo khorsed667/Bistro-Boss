@@ -21,6 +21,7 @@ import Payment from "../Pages/DashBoard/Payment/Payment";
 import UserReview from "../Pages/DashBoard/Review/UserReview";
 import UserBookings from "../Pages/DashBoard/UserBookings/UserBookings";
 import PaymentHistory from "../Pages/DashBoard/PaymentHistory/PaymentHistory";
+import LoginReplica from "../Pages/Login/LoginReplica";
 
   export const router = createBrowserRouter([
     {

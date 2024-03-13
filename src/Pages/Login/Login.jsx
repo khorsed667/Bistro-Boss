@@ -28,6 +28,7 @@ const Login = () => {
         navigate(from, { replace: true });
       })
       .catch((error) => {
+        setProgression(false);
         console.log(error);
       });
   };
@@ -38,67 +39,57 @@ const Login = () => {
         <title>LogIn | Bistro Boss</title>
       </Helmet>
       {progression === true ? (
-        <div className="w-full flex flex-col justify-center items-center mt-52 bg-none">
+        <div className="w-full h-[100vh] flex flex-col justify-center items-center bg-none">
           <span className="loading loading-spinner w-1/6"></span>
           <p className="text-5xl">Please Wait... </p>
         </div>
       ) : (
         <div
-          className="hero min-h-screen bg-base-200"
           style={{ backgroundImage: `url(${background})` }}
+          className="flex items-center justify-center w-full h-[100vh]"
         >
-          <div
-            className="hero-content flex-col lg:flex-row border justify-center md:p-20 shadow-black"
-            style={{
-              backgroundImage: `url(${background})`,
-              boxShadow: "10px 10px 10px 10px rgba(0, 0, 0, 0.25)",
-            }}
-          >
-            <div className="text-center w-1/2 xsm:hidden lg:block lg:text-left">
-              <img src={authenticationSidePhoto}></img>
+          <div className="flex xsm:flex-col lg:flex-row justify-between items-center xsm:w-[90%] lg:w-5/6">
+            <div>
+              <img
+                className="xsm:hidden lg:block w-full"
+                src={authenticationSidePhoto}
+                alt=""
+              />
             </div>
-            <div className="card lg:w-1/2 xsm:w-full m-10 shadow-2xl bg-base-100">
-              <form onSubmit={handelLogin} className="card-body my-0">
-                <h1 className="text-2xl font-bold text-center">Login</h1>
-                <div className="form-control">
-                  <label className="label">
-                    <span className="label-text font-bold">Email</span>
+            <div className="bg-white lg:flex justify-center flex-col p-4 rounded-2xl xsm:w-5/6 lg:w-1/2">
+              <form onSubmit={handelLogin} action="" className="xsm:my-0 lg:my-7">
+                <h1 className="text-4xl text-center font-semibold">Login</h1>
+                <div className="my-3">
+                  <label>
+                    <span>Email</span>
                   </label>
                   <input
-                    type="email"
+                    className="bg-slate-100"
+                    placeholder="Enter your email"
                     name="email"
-                    placeholder="Input Your Email"
-                    className="input input-bordered bg-slate-100 my-0"
+                    type="email"
                     required
                   />
                 </div>
-                <div className="form-control">
-                  <label className="label">
-                    <span className="label-text font-bold">Password</span>
+                <div className="my-3">
+                  <label>
+                    <span>Password</span>
                   </label>
                   <input
+                    className=" bg-slate-100"
+                    placeholder="Enter your password"
                     type="password"
                     name="password"
-                    placeholder="Input Your Password"
-                    className="input input-bordered bg-slate-100 my-0"
                     required
                   />
-                  <label className="label">
-                    <a href="#" className="label-text-alt link link-hover">
-                      Forgot password?
-                    </a>
-                  </label>
                 </div>
-                <div className="form-control mt-6">
-                  {/* TODO: To Input the exect button color */}
-                  <input
-                    className="btn bg-secoundary text-white font-semibold"
-                    type="submit"
-                    value="Login"
-                  />
-                </div>
+                <input
+                  className="w-2/5 mt-5 cursor-pointer bg-secoundary text-white font-semibold"
+                  type="submit"
+                  value="Login"
+                />
               </form>
-              <p className="text-center">
+              <p className="text-center xsm:text-sm lg:text-lg mb-4">
                 New to Bistro Boss?{" "}
                 <Link to={"/signup"} className="font-bold text-secoundary">
                   Create a account
